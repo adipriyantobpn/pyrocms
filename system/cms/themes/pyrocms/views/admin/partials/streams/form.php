@@ -5,9 +5,9 @@
 <fieldset class="padding-top">
 	<ul>
 
-	<?php foreach ($fields as $field ): ?>
+	<?php foreach ($fields as $k => $field ): ?>
 
-		<li class="row-fluid input-row <?php echo in_array($field['input_slug'], $hidden) ? 'hidden' : null; ?>">
+		<li class="row-fluid input-row streams-field-<?php echo $field['input_slug']; ?> streams-field-type-<?php echo $field['field_type']; ?> <?php echo in_array($field['input_slug'], $hidden) ? 'hidden' : null; ?>">
 			<label class="span3" for="<?php echo $field['input_slug'];?>"><?php echo $this->fields->translate_label($field['input_title']);?> <?php echo $field['required'];?>
 			
 			<?php if( $field['instructions'] != '' ): ?>
