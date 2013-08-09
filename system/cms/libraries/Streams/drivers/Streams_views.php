@@ -175,7 +175,7 @@ class Streams_views extends CI_Driver {
 
 			foreach ($view->filters as $filter)
 			{
-				$query_string .= '&f-'.$stream.'-filter[]='.$filter['filter'].'&f-'.$stream.'-condition[]='.$filter['condition'].'&f-'.$stream.'-value[]='.$this->CI->parser->parse_string($filter['default_value'], $this->CI, true);
+				$query_string .= '&f-'.$stream.'-filter[]='.$filter->filter.'&f-'.$stream.'-condition[]='.$filter->condition.'&f-'.$stream.'-value[]='.$this->CI->parser->parse_string($filter->default_value, $this->CI, true);
 			}
 		}
 
