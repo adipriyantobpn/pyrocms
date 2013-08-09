@@ -139,10 +139,10 @@ class Streams_forms extends CI_Driver {
 			
 			# Add a tab
 			$tabs[] = array(
-				'title' => $tab['title'],
-				'id' => isset($tab['id']) ? $tab['id'] : slugify($tab['title']),
-				'slug' => isset($tab['slug']) ? $tab['slug'] : slugify($tab['title']),
-				'fields' => $tab['fields'],
+				'title' => $tab->title,
+				'id' => isset($tab->id) ? $tab->id : slugify($tab->title),
+				'slug' => isset($tab->slug) ? $tab->slug : slugify($tab->title),
+				'fields' => $tab->fields,
 				);
 		}
 
