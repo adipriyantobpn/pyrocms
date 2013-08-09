@@ -175,6 +175,21 @@ class Streams_cp extends CI_Driver {
 		}
 
 
+		// First check for simple searching
+		if ($CI->input->get('search-'.$stream->stream_slug) and $CI->input->get('search-'.$stream->stream_slug.'-term'))
+		{
+			$search = array();
+
+			foreach (explode('|', $CI->input->get('search-'.$stream->stream_slug)) as $filter)
+			{
+				$search[] = $CI->db->protect_identifiers($stream->stream_prefix.$stream->stream_slug.'.'.$filter).' LIKE "%'.urldecode($CI->input->get('search-'.$stream->stream_slug.'-term')).'%"';
+			}
+			
+			// Add our search fragment
+			$this->where[] = ' ( '.implode(' OR ', $search).' ) ';
+		}
+
+
 		// Now check for advanced filters
 		if ($CI->input->get('f-'.$stream->stream_slug.'-filter'))
 		{
