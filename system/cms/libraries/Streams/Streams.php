@@ -16,6 +16,8 @@ class Streams extends CI_Driver_Library
 		'fields',
 		'streams',
 		'cp',
+		'forms',
+		'views',
 		'utilities',
 		'parse'
 	);
@@ -45,7 +47,7 @@ class Streams extends CI_Driver_Library
 		ci()->load->config('streams_core/streams');
 		ci()->load->library(array('streams_core/Type', 'streams_core/Fields', 'Form_validation'));
 
-		ci()->load->model(array('streams_core/row_m', 'streams_core/streams_m', 'streams_core/fields_m'));
+		ci()->load->model(array('streams_core/row_m', 'streams_core/streams_m', 'streams_core/fields_m', 'streams_core/views_m', 'streams_core/forms_m'));
 
 		// Load the language file
 		if (is_dir(APPPATH.'libraries/Streams')) {
