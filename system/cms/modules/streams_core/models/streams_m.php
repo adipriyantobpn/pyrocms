@@ -529,14 +529,9 @@ class Streams_m extends CI_Model
 		// Filter results
 		// -------------------------------------
 
-		if ($filter_data != null) {
-
-			// Loop through and apply the filters
-			foreach ($filter_data['filters'] as $filter=>$value) {
-				if ( strlen($value) > 0 ) {
-					$this->db->like($stream->stream_prefix.$stream->stream_slug.'.'.str_replace('f_', '', $filter), $value);
-				}
-			}
+		foreach ($filter_data as $filter)
+		{
+			$this->db->where($filter, null, false);
 		}
 
 		// -------------------------------------
