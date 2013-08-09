@@ -32,12 +32,12 @@ class Streams_forms extends CI_Driver {
 	 */
 	public function add_form($namespace, $stream, $slug, $form_structure = array())
 	{
-		return $this->CI->forms_m->createform(
+		return $this->CI->forms_m->createForm(
 			array(
 				'namespace' => $namespace,
 				'stream' => $stream,
 				'slug' => $slug,
-				'form_structure' => serialize($form_structure)
+				'form_structure' => json_encode($form_structure)
 				)
 			);
 	}
@@ -74,12 +74,12 @@ class Streams_forms extends CI_Driver {
 	 */
 	public function update_form($stream, $namespace, $slug, $order_by = 'id', $sort = 'ASC', $search = array(), $filters = array())
 	{
-		return $this->CI->forms_m->updateform(
+		return $this->CI->forms_m->updateForm(
 			array(
 				'namespace' => $namespace,
 				'stream' => $stream,
 				'slug' => $slug,
-				'form_structure' => serialize($form_structure),
+				'form_structure' => json_encode($form_structure),
 				)
 			);
 	}
@@ -97,7 +97,7 @@ class Streams_forms extends CI_Driver {
 		foreach ($forms as &$form) {
 
 			// Unsnerialize our codez
-			$form->form_structure = unserialize($form->form_structure);
+			$form->form_structure = json_decode($form->form_structure);
 
 			// Format tabs
 			$form->tabs = self::format_form_tabs($form);
@@ -118,7 +118,7 @@ class Streams_forms extends CI_Driver {
 		$form = $this->CI->forms_m->findForm($stream, $namespace, $slug);
 
 		// Unsnerialize our codez
-		$form->form_structure = unserialize($form->form_structure);
+		$form->form_structure = json_decode($form->form_structure);
 
 		// Format tabs
 		$form->tabs = self::format_form_tabs($form);

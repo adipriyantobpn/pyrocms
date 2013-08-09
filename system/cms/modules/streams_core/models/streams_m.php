@@ -388,6 +388,18 @@ class Streams_m extends CI_Model
 		}
 
 		// -------------------------------------
+		// Delete views
+		// -------------------------------------
+
+		$this->db->where('namespace', $stream->stream_namespace)->delete('data_views');
+
+		// -------------------------------------
+		// Delete forms
+		// -------------------------------------
+
+		$this->db->where('namespace', $stream->stream_namespace)->delete('data_forms');
+
+		// -------------------------------------
 		// Delete from streams table
 		// -------------------------------------
 

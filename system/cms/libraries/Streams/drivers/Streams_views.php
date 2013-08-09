@@ -44,9 +44,9 @@ class Streams_views extends CI_Driver {
 				'title' => $title,
 				'order_by' => $order_by,
 				'sort' => $sort,
-				'search' => serialize($search),
-				'filters' => serialize($filters),
-				'columns' => serialize($columns)
+				'search' => json_encode($search),
+				'filters' => json_encode($filters),
+				'columns' => json_encode($columns)
 				)
 			);
 	}
@@ -97,9 +97,9 @@ class Streams_views extends CI_Driver {
 				'title' => $title,
 				'order_by' => $order_by,
 				'sort' => $sort,
-				'search' => serialize($search),
-				'columns' => serialize($columns),
-				'filters' => serialize($filters)
+				'search' => json_encode($search),
+				'columns' => json_encode($columns),
+				'filters' => json_encode($filters)
 				)
 			);
 	}
@@ -117,9 +117,9 @@ class Streams_views extends CI_Driver {
 		foreach ($views as &$view) {
 
 			// Unsnerialize our codez
-			$view->search = unserialize($view->search);
-			$view->columns = unserialize($view->columns);
-			$view->filters = unserialize($view->filters);
+			$view->search = json_decode($view->search);
+			$view->columns = json_decode($view->columns);
+			$view->filters = json_decode($view->filters);
 
 			$view->query_string = self::format_query_string($stream, $view);
 		}
@@ -139,9 +139,9 @@ class Streams_views extends CI_Driver {
 		$view = $this->CI->views_m->findView($stream, $namespace, $slug);
 
 		// Unsnerialize our codez
-		$view->search = unserialize($view->search);
-		$view->columns = unserialize($view->columns);
-		$view->filters = unserialize($view->filters);
+		$view->search = json_decode($view->search);
+		$view->columns = json_decode($view->columns);
+		$view->filters = json_decode($view->filters);
 
 		$view->query_string = self::format_query_string($stream, $view);
 
