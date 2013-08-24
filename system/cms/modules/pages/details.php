@@ -99,7 +99,8 @@ class Module_Pages extends AbstractModule
                     array(
                         'name' => 'pages:create_title',
                         'uri' => 'admin/pages/choose_type',
-                        'class' => 'add modal'
+                        'class' => 'add',
+                        'data-toggle' => 'modal',
                     )
                 );
             } else {

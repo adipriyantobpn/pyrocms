@@ -57,15 +57,15 @@
 		}
 
 		// And off we go
-		pyro.sort_tree($item_list, $url, $cookie, data_callback, post_sort_callback);
+		//pyro.sort_tree($item_list, $url, $cookie, data_callback, post_sort_callback);
 
 		 function refresh_sticky_page_details(reset) {
 			 var els = $('.scroll-follow');
 			if ( reset === true ) {
 				els.stickyScroll('reset');
 			}
-			els.stickyScroll({ topBoundary: 170, bottomBoundary: 110, minimumWidth: 770});
+			//els.stickyScroll({ topBoundary: 170, bottomBoundary: 110, minimumWidth: 770});
 		}
-		refresh_sticky_page_details();
+		//refresh_sticky_page_details();
 	});
 })(jQuery);
